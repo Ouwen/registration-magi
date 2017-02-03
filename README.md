@@ -61,6 +61,28 @@ docker run --rm -it \
     -out /output/TCGA_GBM_06_0133_post_r
 ```
 
+### Generate a batch file from csv.
+Magi can generate a batch file of docker commands if you have a csv with the following format.
+
+| pre-contrast filepath                       | post-contrast filepath                       | FLAIR filepath                                | output filepath     | output base filename   |
+|---------------------------------------------|----------------------------------------------|-----------------------------------------------|---------------------| -----------------------|
+| /sample_data/input/TCGA_GBM_06_0133_pre.nii | /sample_data/input/TCGA_GBM_06_0133_post.nii | /sample_data/input/TCGA_GBM_06_0133_flair.nii | /sample_data/output | TCGA_GBM_06_0133       |
+| ...                                         | ...                                          | ...                                           | ...                 | ...                    |
+|                                             |                                              |                                               |                     |                        |
+
+
+The batch file created will register MRIs to the MRI with the least number of slices.
+In the case of a tie, the order of precedence is: pre-contrast, post-contrast, FLAIR.
+
+Run the following command to generate a batch script in `<output_location>`
+```
+docker run -rm -it \
+    -v <input_location>:/input
+    -v <output_location>:/output \
+    ouwen/registration-magi
+    python batch_generator /input/imagelist.csv
+```
+
 ## Build image from source (optional)
 You can either build the image by running the following commands:
 ```
