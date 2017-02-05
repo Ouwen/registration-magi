@@ -68,7 +68,6 @@ Magi can generate a batch file of docker commands if you have a csv with the fol
 |---------------------------------------------|----------------------------------------------|-----------------------------------------------|---------------------| -----------------------|
 | /sample_data/input/TCGA_GBM_06_0133_pre.nii | /sample_data/input/TCGA_GBM_06_0133_post.nii | /sample_data/input/TCGA_GBM_06_0133_flair.nii | /sample_data/output | TCGA_GBM_06_0133       |
 | ...                                         | ...                                          | ...                                           | ...                 | ...                    |
-|                                             |                                              |                                               |                     |                        |
 
 
 The batch file created will register MRIs to the MRI with the least number of slices.

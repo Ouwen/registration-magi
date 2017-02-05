@@ -1,0 +1,2 @@
+pre-contrast filepath,post-contrast filepath,FLAIR filepath,output filepath,output base filename
+/sample_data/input/TCGA_GBM_06_0133_pre.nii,/sample_data/input/TCGA_GBM_06_0133_post.nii,/sample_data/input/TCGA_GBM_06_0133_flair.nii,/sample_data/output,TCGA_GBM_06_0133
