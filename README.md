@@ -75,12 +75,15 @@ In the case of a tie, the order of precedence is: pre-contrast, post-contrast, F
 
 Run the following command to generate a batch script in `<output_location>`
 ```
-docker run -rm -it \
-    -v <input_location>:/input
-    -v <output_location>:/output \
-    ouwen/registration-magi
-    python batch_generator /input/imagelist.csv
+docker run --rm -it \
+  -v $PWD:/mount   \
+  -v $PWD/batch_folder:/input \
+  -v $PWD/batch_folder:/output \
+  ouwen/registration-magi \
+  python /input/batch_generator.py /input/images.csv
 ```
+Ensure that there is a binding for `input` and `output`. The binding for `/mount`
+should contain a directory of the directory of all the images. This ensures no filepath conflicts within the docker container.
 
 ## Build image from source (optional)
 You can either build the image by running the following commands:
